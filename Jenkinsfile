@@ -1,14 +1,6 @@
 pipeline {
     agent any
 
-    stages {
-
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/anu-rb06/funlab.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
