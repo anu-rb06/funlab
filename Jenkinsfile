@@ -23,7 +23,7 @@ pipeline {
                 sh '''
                 docker stop funlab || true
                 docker rm funlab || true
-                docker run -d --name funlab -p 8081:8000 funlab-image
+                docker run -d --name funlab -p 8089:8000 funlab-image
                 '''
             }
         }
