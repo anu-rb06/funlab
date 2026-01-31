@@ -13,7 +13,7 @@ pipeline {
         stage('Run Container') {
             steps {
                 echo "Running Docker container..."
-                sh 'docker run -d -p 8081:80 funlab-image'
+                sh 'docker run -d -p 8081:8000 funlab-image'
             }
         }
 
