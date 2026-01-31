@@ -1,21 +1,21 @@
 pipeline {
     agent any
 
+    stages {
+
         stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("my-python-app")
-                }
+                echo "Building Docker image..."
+                sh 'docker build -t funlab-image .'
             }
         }
 
         stage('Run Container') {
             steps {
-                script {
-                    sh 'docker rm -f my-python-container || true'
-                    sh 'docker run -d -p 5000:5000 --name my-python-container my-python-app'
-                }
+                echo "Running Docker container..."
+                sh 'docker run -d -p 8081:80 funlab-image'
             }
         }
-    }
 
+    }
+}
